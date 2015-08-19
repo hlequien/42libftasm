@@ -6,21 +6,23 @@
 	
 ft_strcat:
 	push rdi
+	push rsi
 go_to_end_dest:
 	mov al, [rdi]
 	cmp al, 0
 	je start_cat
 	inc rdi
 	jmp go_to_end_dest
-	push rsi
 start_cat:
 	mov al, [rsi]
 	mov [rdi], al
 	cmp al, 0
+	je end_cat
 	inc rsi
 	inc rdi
-	jne start_cat
-	pop rdi
+	jmp start_cat
+end_cat:
 	pop rsi
+	pop rdi
 	mov rax, rdi
 	ret

@@ -33,16 +33,42 @@ static char *ft_strdup_c(char *s)
   return (ret);
 }
 
+static void ft_putendl_c(char *s)
+{
+  write(1, s, ft_strlen_c(s));
+  write(1, "\n", 1);
+}
+
+static char *ft_strcpy_c(char *s1, char *s2)
+{
+  char *ret;
+
+  ret = s1;
+  s1 += ft_strlen_c(s1);
+  while (*s2)
+    *s1++ = *s2++;
+  *s1 = '\0';
+  return (ret);
+}
+
 int main(void)
 {
-  char *s;
-
-  s = ft_strdup_c("abcde");
-  write(1, s, ft_strlen_c(s));
-  write(1, "\n", 1);
-  ft_bzero(s, ft_strlen_c(s));
-  write(1, s, ft_strlen_c(s));
-  write(1, "\n", 1);
+  char *s1;
+  char *s2;
   
+  s1 = ft_strdup_c("abcde");
+  ft_putendl_c(s1);
+  ft_bzero(s1, ft_strlen_c(s1));
+  ft_putendl_c(s1);
+  free(s1);
+  s1 = (char *)malloc(sizeof(char) * 11);
+  ft_strcpy_c(s1, "abcde");
+  s2 = ft_strdup_c("fghij");
+  ft_putendl_c(s1);
+  ft_putendl_c(s2);
+  ft_strcat(s1, s2);
+  ft_putendl_c(s1);
+  free(s1);
+  free(s2);
   return (0);
 }
