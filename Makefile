@@ -6,7 +6,8 @@ CFLAGS=-Wall -Wextra -Werror
 ASMFLAGS=-f elf64
 CSRC_NAME=main.c
 ASMSRC_NAME=ft_bzero.s\
-ft_strcat.s
+ft_strcat.s\
+ft_isalpha.s
 OBJ_NAME=$(ASMSRC_NAME:.s=.o)
 COBJ_NAME=(CSRC_NAME:.c=.o)
 

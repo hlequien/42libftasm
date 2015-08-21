@@ -1,6 +1,7 @@
 #include <libftasm.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 static size_t ft_strlen_c(char *s)
 {
@@ -51,6 +52,24 @@ static char *ft_strcpy_c(char *s1, char *s2)
   return (ret);
 }
 
+int ft_isalpha_c(char c)
+{
+  return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
+}
+
+static void ft_test_isalpha(void)
+{
+  char c;
+
+  c = 'a' - 2;
+  while (c++ <= 'z' + 1)
+    if (ft_isalpha(c) == ft_isalpha_c(c))
+      write(1, ".", 1);
+    else
+	printf("\n [%c] = ft_isalpha == %d", c, ft_isalpha(c));
+  write(1, "\n", 1);
+}
+
 int main(void)
 {
   char *s1;
@@ -70,5 +89,6 @@ int main(void)
   ft_putendl_c(s1);
   free(s1);
   free(s2);
+  ft_test_isalpha();
   return (0);
 }

@@ -5,15 +5,14 @@
 	global ft_isalpha
 
 ft_isalpha:
-	mov al, rdi
-	cmp al, 65
-	jnae no
-	cmp al, 123
-	jnbe no
-	cmp al, 90
-	ja yes
-	cmp al, 97
+	cmp rdi, 65
+	jb no
+	cmp rdi, 122
+	ja no
+	cmp rdi, 90
 	jbe yes
+	cmp rdi, 97
+	jae yes
 no:
 	mov rax, 0
 	ret
