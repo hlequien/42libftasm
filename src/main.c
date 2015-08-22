@@ -57,9 +57,14 @@ int ft_isalpha_c(char c)
   return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
 }
 
-int ft_isalnum_c(char c)
+static int ft_isalnum_c(char c)
 {
   return (ft_isalpha(c) || (c <= '9' && c >= 0));
+}
+
+static int ft_isprint_c(char c)
+{
+  return (c >= ' ' && c <= '~');
 }
 static void ft_test_isalpha(void)
 {
@@ -87,6 +92,18 @@ static void ft_test_isalnum(void)
       //      printf("\n%c == %d", c, ft_isalnum(c));
 }
 
+static void ft_test_isprint(void)
+{
+  char c;
+
+  c = -1;
+  while (c++ < 127)
+      if (ft_isprint(c) == ft_isprint_c(c))
+	write(1, ".", 1);
+      else
+	write(1, "X", 1);
+}
+
 int main(void)
 {
   char *s1;
@@ -108,5 +125,6 @@ int main(void)
   free(s2);
   ft_test_isalpha();
   ft_test_isalnum();
+  ft_test_isprint();
   return (0);
 }

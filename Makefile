@@ -9,7 +9,8 @@ ASMSRC_NAME=ft_bzero.s\
 ft_strcat.s\
 ft_isalpha.s\
 ft_isdigit.s\
-ft_isalnum.s
+ft_isalnum.s\
+ft_isprint.s
 OBJ_NAME=$(ASMSRC_NAME:.s=.o)
 COBJ_NAME=(CSRC_NAME:.c=.o)
 
