@@ -66,6 +66,10 @@ static int ft_isprint_c(char c)
 {
   return (c >= ' ' && c <= '~');
 }
+static int ft_isascii_c(int c)
+{
+  return (c >= 0 && c <= 127);
+}
 static void ft_test_isalpha(void)
 {
   char c;
@@ -104,6 +108,18 @@ static void ft_test_isprint(void)
 	write(1, "X", 1);
 }
 
+static void ft_test_isascii(void)
+{
+  int c;
+
+  c = -25;
+  while(c++ < 155)
+    if (ft_isascii(c) == ft_isascii_c(c))
+      write(1, ".", 1);
+    else
+      write(1, "X", 1);
+}
+
 int main(void)
 {
   char *s1;
@@ -126,5 +142,6 @@ int main(void)
   ft_test_isalpha();
   ft_test_isalnum();
   ft_test_isprint();
+  ft_test_isascii();
   return (0);
 }

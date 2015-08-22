@@ -10,7 +10,8 @@ ft_strcat.s\
 ft_isalpha.s\
 ft_isdigit.s\
 ft_isalnum.s\
-ft_isprint.s
+ft_isprint.s\
+ft_isascii.s
 OBJ_NAME=$(ASMSRC_NAME:.s=.o)
 COBJ_NAME=(CSRC_NAME:.c=.o)
 

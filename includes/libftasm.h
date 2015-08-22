@@ -8,5 +8,6 @@ char *ft_strcat(char *dest, char *src);
 int ft_isalpha(char c);
 int ft_isalnum(char c);
 int ft_isprint(char c);
+int ft_isascii(int c);
 
 #endif
