@@ -11,7 +11,18 @@ ft_isalpha.s\
 ft_isdigit.s\
 ft_isalnum.s\
 ft_isprint.s\
-ft_isascii.s
+ft_isascii.s\
+ft_toupper.s\
+ft_islower.s\
+ft_isupper.s\
+ft_tolower.s\
+ft_strlen.s\
+ft_puts.s\
+ft_memset.s\
+ft_memcpy.s\
+ft_strdup.s\
+ft_memalloc.s\
+ft_cat.s
 OBJ_NAME=$(ASMSRC_NAME:.s=.o)
 COBJ_NAME=(CSRC_NAME:.c=.o)
 
