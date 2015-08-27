@@ -22,8 +22,4 @@ is_ok:
 	pop rax
 	pop rax
 	pop rdi
-	cmp rdi, 0
-	jne done
-	mov rax, -1
-done:	
 	ret

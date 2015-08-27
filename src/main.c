@@ -249,6 +249,7 @@ int main(void)
 {
   char *s1;
   char *s2;
+  int ret;
   
   s1 = ft_strdup_c("abcde");
   ft_puts(s1);
@@ -304,7 +305,29 @@ int main(void)
   ft_putstr("test de putstr\n");
   ft_putstr("test de ft_bzero");
   ft_test_bzero();
-  ft_puts(NULL);
-  puts(NULL);
+  ret = ft_puts(NULL);
+  printf("NULL = %d\n", ret);
+  ret = ft_puts("");
+  printf("\"\" = %d\n", ret);
+  ret = ft_puts(".");
+  printf(". = %d\n", ret);
+  ret = puts(NULL);
+  printf("NULL = %d\n", ret);
+  ret = puts("");
+  printf("\"\" = %d\n", ret);
+  ret = puts(".");
+  printf(". = %d\n", ret);
+  ret = puts("..");
+  printf(". = %d\n", ret);
+  ret = puts(".");
+  printf(". = %d\n", ret);
+  ret = puts("...");
+  printf(". = %d\n", ret);
+  ret = puts("....");
+  printf(". = %d\n", ret);
+  ret = puts(".....");
+  printf(". = %d\n", ret);
+  printf("%d", EOF);
+//  puts(NULL);
   return (0);
 }
