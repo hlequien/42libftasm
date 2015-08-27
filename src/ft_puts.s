@@ -3,18 +3,27 @@
 
 
 section .data
-	line_feed db 0xa, 0x0
-
+	null_str db "(null)", 0x0
 section .text
 	extern ft_putstr
 	global ft_puts
 
 ft_puts:
-	call ft_putstr
 	push rdi
+	cmp rdi, 0
+	jne is_ok
+	lea rdi, [rel null_str]
+is_ok:
+	call ft_putstr
 	push rax
-	lea rdi, [rel line_feed]
+	push 10
+	mov rdi, rsp
 	call ft_putstr
 	pop rax
+	pop rax
 	pop rdi
+	cmp rdi, 0
+	jne done
+	mov rax, -1
+done:	
 	ret

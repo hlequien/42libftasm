@@ -118,55 +118,7 @@ void ft_test_bzero(void)
 		else
 			write(1, ".", 1);
 	}
-}
-
-void ft_test_isalpha(void)
-{
-  int c;
-
-  c = 'a' - 2;
-  while (c++ <= 'z' + 1)
-    if (ft_isalpha(c) == ft_isalpha_c(c))
-      write(1, ".", 1);
-    else
-		write(1, &c, 1);
-  write(1, "\n", 1);
-}
-
-void ft_test_isalnum(void)
-{
-  int c;
-
-  c = '0' -2;
-  while (c++ <= 'z' + 1)
-    if (ft_isalnum(c) == ft_isalnum_c(c))
-      write(1, ".", 1);
-    else
-      write(1, &c, 1);
-}
-
-void ft_test_isprint(void)
-{
-  int c;
-
-  c = -1;
-  while (c++ < 127)
-      if (ft_isprint(c) == ft_isprint_c(c))
-	write(1, ".", 1);
-      else
-	write(1, "X", 1);
-}
-
-void ft_test_isascii(void)
-{
-  int c;
-
-  c = -25;
-  while(c++ < 155)
-    if (ft_isascii(c) == ft_isascii_c(c))
-      write(1, ".", 1);
-    else
-      write(1, "X", 1);
+	write(1, "\n", 1);
 }
 
 void ft_test_int_ret(int (*f1)(int), int (*f2)(int))
@@ -349,8 +301,10 @@ int main(void)
   ft_test_memalloc();
 //  ft_putstr("ft_cat\n");
 //  ft_test_cat();
-//  ft_putstr("test de puts\n");
-//  ft_putstr("test de ft_bzero");
-//  ft_test_bzero();
+  ft_putstr("test de putstr\n");
+  ft_putstr("test de ft_bzero");
+  ft_test_bzero();
+  ft_puts(NULL);
+  puts(NULL);
   return (0);
 }
