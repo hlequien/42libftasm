@@ -1,10 +1,6 @@
-NAME=libftasm.a
-NAME_TEST=test_lib
-CC=gcc
-CASM=nasm
-CFLAGS=-Wall -Wextra -Werror
-ASMFLAGS=-f elf64
-CSRC_NAME=main.c
+NAME=libfts.a
+CASM=~/.brew/Cellar/nasm/2.11.08/bin/nasm
+ASMFLAGS=-f macho64 --prefix _
 ASMSRC_NAME=ft_bzero.s\
 ft_strcat.s\
 ft_isalpha.s\
@@ -22,9 +18,9 @@ ft_memset.s\
 ft_memcpy.s\
 ft_strdup.s\
 ft_memalloc.s\
-ft_cat.s
+ft_cat.s\
+ft_putstr.s
 OBJ_NAME=$(ASMSRC_NAME:.s=.o)
-COBJ_NAME=(CSRC_NAME:.c=.o)
 
 SRC_PATH=./src/
 OBJ_PATH=./obj/
@@ -33,7 +29,6 @@ INC_PATH=./includes/
 SRC = $(addprefix $(SRC_PATH),$(ASMSRC_NAME))
 OBJ = $(addprefix $(OBJ_PATH),$(OBJ_NAME))
 INC = $(addprefix -I,$(INC_PATH))
-COBJ = $(addprefix $(OBJ_PATH),$(COBJ_NAME))
 
 all:$(NAME)
 
@@ -52,10 +47,3 @@ $(NAME):$(OBJ)
 $(OBJ_PATH)%.o:$(SRC_PATH)%.s
 	@mkdir -p $(OBJ_PATH)
 	$(CASM) $(ASMFLAGS) $(INC) $< -o $@
-
-#$(OBJ_PATH)%.o:$(SRC_PATH)%.c
-#	mkdir -p $(OBJ_PATH)
-#	$(CC) $(CFLAGS) $(INC) -c $< -o $@
-
-#$(NAME)_TEST:$(COBJ)
-#	$(CC) $(CFLAGS) $(COBJ) -o $(NAME_TEST)

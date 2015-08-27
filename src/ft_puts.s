@@ -1,21 +1,20 @@
-	;; int ft_puts(char *s)
-	;; print s to stdin
-	;; returns
-	;; NB : on MacOS, write is index 4,
-	;; 		Have to define this macro :
-	;; 		%define MACH_SYSCALL(nb)	0x2000000 | nb
-	;; 	on Linux, write is index 1
-	%define WRITE	1
-	extern ft_strlen
+	;; int ft_puts(char *s);
+	;; 	mov rdi, [rel line_feed]
+
+
+section .data
+	line_feed db 0xa, 0x0
+
+section .text
+	extern ft_putstr
 	global ft_puts
 
 ft_puts:
+	call ft_putstr
 	push rdi
-	call ft_strlen
-	mov rsi, rdi
-	mov rdi, 1
-	mov rdx, rax
-	mov rax, 1
-	syscall
+	push rax
+	lea rdi, [rel line_feed]
+	call ft_putstr
+	pop rax
 	pop rdi
 	ret

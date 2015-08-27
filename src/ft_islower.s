@@ -1,7 +1,6 @@
 	;; int ft_islower(char c)
 	;; returns 1 if c is lower case
 	;; returns 0 if not
-
 	global ft_islower
 
 ft_islower:

@@ -10,7 +10,7 @@ ft_tolower:
 	cmp rax, 0
 	je no
 	mov rax, rdi
-	sub rax, 32
+	add rax, 32
 	ret
 no:
 	mov rax, rdi

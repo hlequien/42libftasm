@@ -12,7 +12,7 @@ ft_toupper:
 	cmp rax, 0
 	je no
 	mov rax, rcx
-	add rax, 32
+	sub rax, 32
 	ret
 no:
 	mov rax, rdi
