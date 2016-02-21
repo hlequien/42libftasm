@@ -1,5 +1,5 @@
 NAME=libfts.a
-CASM=~/.brew/Cellar/nasm/2.11.08/bin/nasm
+CASM=~/.brew/bin/nasm
 ASMFLAGS=-f macho64 --prefix _
 ASMSRC_NAME=ft_bzero.s\
 ft_strcat.s\
